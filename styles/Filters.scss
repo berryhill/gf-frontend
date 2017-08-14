@@ -1,0 +1,32 @@
+.filters-list {
+  position: relative;
+  float: left;
+  max-width: 300px;
+  // justify-content: center;
+  // align-items: center;
+}
+
+.filter-text {
+  color: #4c4a37;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 48px;
+  // line-height: 30px;
+  // min-height: 80px;
+  // margin: auto;
+  // text-align: center;
+}
+
+.filters-open {
+  background-color: white;
+  width: 800px;
+  height: 400px;
+  float: left;
+  position: relative;
+}
+
+.filters-closed {
+  width: 0px;
+  height: 0px;
+  float: left;
+  position: relative;
+}

@@ -1,0 +1,41 @@
+.app {
+  width:80%;
+  margin: 0 auto;
+}
+
+.header {
+  height: 80px;
+  // background-color: #DCDCDC;
+  background-color: #404040;
+  position: fixed;
+  z-index:1;
+  min-width: 78%;
+}
+
+.title {
+  position: fixed;
+  background-color: #404040;
+  // color: #4c4a37;
+  color: white;
+  font-family: 'Open Sans';
+  font-size: 48px;
+  margin-top: 13px;
+}
+
+.right-col {
+    // width: 300px;
+    margin-top: 100px;
+    margin-left: 50px;
+    float:left; /* add this */
+    background-color: white;
+    border: none;
+    // min-height: 800px;
+    position: fixed;
+}
+
+.left-col {
+  margin-left: 300px;
+  max-width: 1200px;
+  margin-top: 100px;
+  float: left;
+}

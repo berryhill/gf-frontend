@@ -1,0 +1,43 @@
+.button {
+  width: 300px;
+  font-size: 32px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  // margin: auto;
+  background-color: white; /* Green */
+  // display: inline-block;
+  border: 1px, #4c4a37 ;
+  color: #4c4a37;
+  padding: 15px 15px;
+  // text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  // float: left;
+  -webkit-transition:
+    width 1s,
+    height 1s,
+    background-color 1s,
+    -webkit-transform 1s;
+  transition:
+    width 1s,
+    height 1s,
+    background-color 1s,
+    color .5s,
+    transform 1s,
+    border 1s;
+}
+
+.button-hover {
+  width: 300px;
+  font-size: 20px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  // margin: auto;
+  background-color: white; /* Green */
+  // display: inline-block;
+  border: none;
+  color: #4c4a37;
+  padding: 15px 15px;
+  // text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  // float: left;
+}
