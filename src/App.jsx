@@ -1,18 +1,38 @@
 import React, {Component} from 'react';
 import Products from './Products.jsx';
 import Filters from './Filters.jsx';
-// import App from './App.jsx';
-import filtersExpandCollapse from './Filters.jsx';
+import {createStore} from 'redux';
+import {Provider, connect} from 'react-redux';
 
+function filtersExpandCollapse(state={
+  filters: 'filters-closed',
+  buttonPushState: [false, false, false] }, action) {
 
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-
+  switch(action.type) {
+    case 'EXPAND':
+      return Object.assign({}, state, { filters: 'filters-open' });
+      // return 'filters-open'
+    case 'COLLAPSE':
+      return Object.assign({}, state, { filters: 'filters-closed' });
+      // return 'filters-closed'
+    default:
+      return state
+  }
+}
 
 const store = createStore(filtersExpandCollapse);
 
+const mapStateToProps = function (state) {
+  return {state};
+}
+
+const FilterList = connect(mapStateToProps)(Filters);
+
 class App extends Component {
+  constructor() {
+    super()
+  }
+
   render() {
     return (
       <div className='app'>
@@ -20,7 +40,9 @@ class App extends Component {
           <div className='title'>FLYGEARFINDER</div>
         </div>
         <div className='right-col'>
-          <Filters store={store}/>
+          <Provider store={store}>
+            <FilterList />
+          </Provider>
         </div>
         <div className='left-col'>
           <Products />

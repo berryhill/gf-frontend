@@ -1,92 +1,66 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import Button from './Button.jsx'
-import {createStore} from 'redux';
 
-function filtersExpandCollapse(state=0, action) {
-  switch(action.type) {
-    case 'EXPAND':
-      return true;
-    case 'COLLAPSE':
-      return false;
-  }
-}
-
-function FiltersList (props) {
-  var filtersStyle;
-  if (props.expand) {
-    filtersStyle = 'filters-open'
-  } else {
-    filtersStyle = 'filters-closed'
-  }
-
-  if (props.filters) {
-    return (
-      <div className>
-        <div className='filters-list'>
-          {props.filters.map(function (filter, index) {
-            return (
-              {props.store.getState()}
-              <Button text={filter}
-                onClick={this.expandFilters.bind.(this)}/>
-            )
-          })}
-        </div>
-        <div className={filtersStyle}>
-        </div>
-      </div>
-    )
-  }
-  return null
-}
+let filters = ["Hot Deals", "Brand", "Price"]
 
 class Filters extends Component {
-  constructor(props) {
-    super()
-    this.state = {
-      filters: ["Hot Deals", "Brand", "Price"],
-      expand: false,
-    };
-  }
-
   expandFilters() {
-    if (this.state.expand) {
-      this.props.start.dispatch({
-        type: 'EXPAND'
-      });
+    if (this.props.state.filters === 'filters-closed') {
+      this.props.dispatch({type: 'EXPAND'});
     } else {
-      this.props.start.dispatch({
-        type: 'COLLAPSE'
-      });
+      this.props.dispatch({type: 'COLLAPSE'});
     }
   }
 
-  // expandFilters = this.expandFilters.bind(this);
-  // expandFilters() {
-  //   console.log("Called")
-  //   this.setState(function () {
-  //     return {
-  //       expand: true
-  //     }
-  //   })
-  }
-
-  // handleClick = this.handleClick.bind(this);
-  // handleClick() {
-  //   console.log("I've been clicked");
-  // }
-
-  // componentDidMount() {
-  //   this.setState(function () {
-  //
-  //   })
+  updateFilterButtonGridState() {}
 
   render() {
-    return (
-      <div>
-        <FiltersList filters={this.state.filters}
-          expand={this.state.expand} />
+    // return (<div>
+    //   {this.props.state}
+    //   <div>
+    //       <div className>
+    //         <div className='filters-list'>
+    //           {filters.map(function (filter, index) {
+    //             return (
+    //               <button className='button' onClick={this.expandFilters.bind(this)}>
+    //                 {filter}
+    //               </button>
+    //             )
+    //           })}
+    //         </div>
+    //         <div className='matt'>
+    //         </div>
+    //       </div>
+    //   </div>
+    // </div>);
+
+    console.log('render() called')
+    console.log(this.props.state.filters)
+
+    return (<div>
+      <div className='filters-list'>
+        <button className='button' onClick={this.expandFilters.bind(this)}>
+          {filters[0]}
+        </button>
+        <button className='button' onClick={this.expandFilters.bind(this)}>
+          {filters[1]}
+        </button>
+        <button className='button' onClick={this.expandFilters.bind(this)}>
+          {filters[2]}
+        </button>
+        </div>
+        <div className={this.props.state.filters}>
+        <button className='button' onClick={this.expandFilters.bind(this)}>
+          Sage
+          </button>
+          <button className='button' onClick={this.expandFilters.bind(this)}>
+            Orvis
+          </button>
+        <div>
+          Finished
+        </div>
       </div>
-    );
+    </div>);
   }
 }
 
