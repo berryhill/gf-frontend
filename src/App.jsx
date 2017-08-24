@@ -6,15 +6,22 @@ import {Provider, connect} from 'react-redux';
 
 function filtersExpandCollapse(state={
   filters: 'filters-closed',
-  buttonPushState: [false, false, false] }, action) {
+  productTypeButtonState: [false, false, false, false, false] },
+  action) {
 
   switch(action.type) {
-    case 'EXPAND':
-      return Object.assign({}, state, { filters: 'filters-open' });
-      // return 'filters-open'
+    case 'FLYRODS':
+      return Object.assign(
+        {}, state, {
+          productTypeButtonState: [!state.productTypeButtonState[0], false, false, false, false]
+        });
+    case 'FLYREELS':
+      return Object.assign(
+        {}, state, {
+          productTypeButtonState: [false, !state.productTypeButtonState[1], false, false, false]
+        });
     case 'COLLAPSE':
       return Object.assign({}, state, { filters: 'filters-closed' });
-      // return 'filters-closed'
     default:
       return state
   }
@@ -37,14 +44,15 @@ class App extends Component {
     return (
       <div className='app'>
         <div className='header'>
-          <div className='title'>FLYGEARFINDER</div>
+          <div className='title'>FlyGearFinder</div>
+          <input className='search-input' placeholder="SEARCH" type="text"/>
         </div>
-        <div className='right-col'>
+        <div className='filter-col'>
           <Provider store={store}>
             <FilterList />
           </Provider>
         </div>
-        <div className='left-col'>
+        <div className='product-col'>
           <Products />
         </div>
       </div>

@@ -1,7 +1,17 @@
 import React, {Component} from 'react'
-import Button from './Button.jsx'
+import { DropdownButton } from 'react-bootstrap';
+import { MenuItem } from 'react-bootstrap';
+// import Button from './Button.jsx'
 
-let filters = ["Hot Deals", "Brand", "Price"]
+let filters = ["Product Type", "Brand", "Price", "Sort"]
+
+// function FiltersGrid (props) {
+//   if (props.products) {
+//     return (
+//     )
+//   }
+//   return null
+// }
 
 class Filters extends Component {
   expandFilters() {
@@ -12,7 +22,25 @@ class Filters extends Component {
     }
   }
 
-  updateFilterButtonGridState() {}
+  updateFilterButtonGridState() {
+    this.props.dispatch({type: 'BUTTONPUSH'})
+  }
+
+  handleProductButton(key) {
+    action = PRODUCTBUTTION + key
+    this.props.dispatch({type: action})
+  }
+
+  handleFlyRods(num) {
+    this.props.dispatch({type: 'FLYRODS'})
+    console.log('Selected')
+    console.log(num)
+  }
+
+  handleFlyReels() {
+    this.props.dispatch({type: 'FLYREELS'})
+    console.log('Selected')
+  }
 
   render() {
     // return (<div>
@@ -35,33 +63,67 @@ class Filters extends Component {
     // </div>);
 
     console.log('render() called')
-    console.log(this.props.state.filters)
 
-    return (<div>
+    // <button className={this.props.state.buttonPushState[0]} onClick={this.expandFilters.bind(this)}>
+    //   {filters[0]}
+    // </button>
+
+    // <MenuItem className={this.props.state.filters} onSelect={this.handleSelect.bind(this)}>Fly Rods</MenuItem>
+
+    var selectedRods; var selectedReels
+    if (this.props.state.productTypeButtonState[0]) {
+      selectedRods = 'button-selected'
+    } else {
+      selectedRods = 'button'
+    }
+
+    if (this.props.state.productTypeButtonState[1]) {
+      selectedReels = 'button-selected'
+    } else {
+      selectedReels = 'button'
+    }
+
+    return (<div className='filters'>
       <div className='filters-list'>
-        <button className='button' onClick={this.expandFilters.bind(this)}>
-          {filters[0]}
-        </button>
-        <button className='button' onClick={this.expandFilters.bind(this)}>
-          {filters[1]}
-        </button>
-        <button className='button' onClick={this.expandFilters.bind(this)}>
-          {filters[2]}
-        </button>
-        </div>
-        <div className={this.props.state.filters}>
-        <button className='button' onClick={this.expandFilters.bind(this)}>
-          Sage
-          </button>
-          <button className='button' onClick={this.expandFilters.bind(this)}>
-            Orvis
-          </button>
-        <div>
-          Finished
-        </div>
+        <DropdownButton title='Product Type' className='dropdown-button'>
+          <MenuItem className={selectedRods} onSelect={() => this.handleFlyRods(5)}>Fly Rods</MenuItem>
+          <MenuItem className={selectedReels} onSelect={this.handleFlyReels.bind(this)}>Fly Reels</MenuItem>
+          <MenuItem className='button'>Line, Leader, & Tippet</MenuItem>
+          <MenuItem className='button'>Accessories & Tools</MenuItem>
+          <MenuItem className='button'>Apparal</MenuItem>
+        </DropdownButton>
+        <DropdownButton title='Brand' className='dropdown-button'>
+          <MenuItem className='button'>Sage</MenuItem>
+          <MenuItem className='button'>Scott</MenuItem>
+          <MenuItem className='button'>Orvis</MenuItem>
+          <MenuItem className='button'>Scott</MenuItem>
+        </DropdownButton>
+        <DropdownButton title='Price' className='dropdown-button'>
+          <MenuItem className='button'>$50</MenuItem>
+          <MenuItem className='button'>$100</MenuItem>
+          <MenuItem className='button'>$150</MenuItem>
+          <MenuItem className='button'>$200</MenuItem>
+          <MenuItem className='button'>$250</MenuItem>
+        </DropdownButton>
+        <DropdownButton title='Sort' className='dropdown-button'>
+          <MenuItem className='button'>Price: Highest-Lowest</MenuItem>
+          <MenuItem className='button'>Price: Lowest-Highest</MenuItem>
+          <MenuItem className='button'>Brand: A-Z</MenuItem>
+          <MenuItem className='button'>Brand: Z-A</MenuItem>
+        </DropdownButton>
       </div>
     </div>);
   }
 }
+
+// <button className='button' onClick={this.expandFilters.bind(this)}>
+//   {filters[0]}
+// </button>
+// <button className='button' onClick={this.expandFilters.bind(this)}>
+//   {filters[1]}
+// </button>
+// <button className='button' onClick={this.expandFilters.bind(this)}>
+//   {filters[2]}
+// </button>
 
 export default Filters;

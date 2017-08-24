@@ -1,7 +1,18 @@
+.filters {
+  position: relative;
+
+  min-width: 80%
+}
+
 .filters-list {
   position: relative;
   float: left;
-  max-width: 300px;
+  display: flex;
+  align-self: center;
+  flex-wrap: wrap;
+  // margin-right: 10%;
+  // margin-left: 30%;
+  // max-width: 300px;
   // justify-content: center;
   // align-items: center;
 }
@@ -31,7 +42,7 @@
 .filters-open {
   opacity: 100%;
   z-index: -1;
-  position: relative;
+  position: absolute;
   background-color: white;
   width: 300px;
   // height: 400px;
@@ -58,9 +69,8 @@
   z-index: 0;
   width: 0px;
   height: 0px;
-  float: left;
+  // float: left;
   text-color: white;
-  position: relative;
   -webkit-transition:
     // width .5s,
     // height .5s,

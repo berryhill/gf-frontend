@@ -27,7 +27,6 @@ function ProductsGrid (props) {
       </ul>
     )
   }
-
   return null
 }
 
@@ -43,7 +42,11 @@ class Products extends Component {
     api.fetchProducts("fly_rods")
     .then(function (products) {
       console.log(products[0].image)
-
+      this.setState(function () {
+        return {
+          products: products
+        }
+      })
     }.bind(this));
   }
 
