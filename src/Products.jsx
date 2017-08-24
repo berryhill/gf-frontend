@@ -20,14 +20,13 @@ function ProductsGrid (props) {
                 <ul>
                   {product.price}
                 </ul>
-              </ul>
+              </div>
           </li>
           )
         })}
       </ul>
     )
   }
-
   return null
 }
 

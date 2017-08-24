@@ -1,93 +1,129 @@
-import React, {Component} from 'react';
-import Button from './Button.jsx'
-import {createStore} from 'redux';
+import React, {Component} from 'react'
+import { DropdownButton } from 'react-bootstrap';
+import { MenuItem } from 'react-bootstrap';
+// import Button from './Button.jsx'
 
-function filtersExpandCollapse(state=0, action) {
-  switch(action.type) {
-    case 'EXPAND':
-      return true;
-    case 'COLLAPSE':
-      return false;
-  }
-}
+let filters = ["Product Type", "Brand", "Price", "Sort"]
 
-function FiltersList (props) {
-  var filtersStyle;
-  if (props.expand) {
-    filtersStyle = 'filters-open'
-  } else {
-    filtersStyle = 'filters-closed'
-  }
-
-  if (props.filters) {
-    return (
-      <div className>
-        <div className='filters-list'>
-          {props.filters.map(function (filter, index) {
-            return (
-              {props.store.getState()}
-              <Button text={filter}
-                onClick={this.expandFilters.bind.(this)}/>
-            )
-          })}
-        </div>
-        <div className={filtersStyle}>
-        </div>
-      </div>
-    )
-  }
-  return null
-}
+// function FiltersGrid (props) {
+//   if (props.products) {
+//     return (
+//     )
+//   }
+//   return null
+// }
 
 class Filters extends Component {
-  constructor(props) {
-    super()
-    this.state = {
-      filters: ["Hot Deals", "Brand", "Price"],
-      expand: false,
-    };
-  }
-
   expandFilters() {
-    if (this.state.expand) {
-      this.props.start.dispatch({
-        type: 'EXPAND'
-      });
+    if (this.props.state.filters === 'filters-closed') {
+      this.props.dispatch({type: 'EXPAND'});
     } else {
-      this.props.start.dispatch({
-        type: 'COLLAPSE'
-      });
+      this.props.dispatch({type: 'COLLAPSE'});
     }
   }
 
-  // expandFilters = this.expandFilters.bind(this);
-  // expandFilters() {
-  //   console.log("Called")
-  //   this.setState(function () {
-  //     return {
-  //       expand: true
-  //     }
-  //   })
+  updateFilterButtonGridState() {
+    this.props.dispatch({type: 'BUTTONPUSH'})
   }
 
-  // handleClick = this.handleClick.bind(this);
-  // handleClick() {
-  //   console.log("I've been clicked");
-  // }
+  handleProductButton(key) {
+    action = PRODUCTBUTTION + key
+    this.props.dispatch({type: action})
+  }
 
-  // componentDidMount() {
-  //   this.setState(function () {
-  //
-  //   })
+  handleFlyRods(num) {
+    this.props.dispatch({type: 'FLYRODS'})
+    console.log('Selected')
+    console.log(num)
+  }
+
+  handleFlyReels() {
+    this.props.dispatch({type: 'FLYREELS'})
+    console.log('Selected')
+  }
 
   render() {
-    return (
-      <div>
-        <FiltersList filters={this.state.filters}
-          expand={this.state.expand} />
+    // return (<div>
+    //   {this.props.state}
+    //   <div>
+    //       <div className>
+    //         <div className='filters-list'>
+    //           {filters.map(function (filter, index) {
+    //             return (
+    //               <button className='button' onClick={this.expandFilters.bind(this)}>
+    //                 {filter}
+    //               </button>
+    //             )
+    //           })}
+    //         </div>
+    //         <div className='matt'>
+    //         </div>
+    //       </div>
+    //   </div>
+    // </div>);
+
+    console.log('render() called')
+
+    // <button className={this.props.state.buttonPushState[0]} onClick={this.expandFilters.bind(this)}>
+    //   {filters[0]}
+    // </button>
+
+    // <MenuItem className={this.props.state.filters} onSelect={this.handleSelect.bind(this)}>Fly Rods</MenuItem>
+
+    var selectedRods; var selectedReels
+    if (this.props.state.productTypeButtonState[0]) {
+      selectedRods = 'button-selected'
+    } else {
+      selectedRods = 'button'
+    }
+
+    if (this.props.state.productTypeButtonState[1]) {
+      selectedReels = 'button-selected'
+    } else {
+      selectedReels = 'button'
+    }
+
+    return (<div className='filters'>
+      <div className='filters-list'>
+        <DropdownButton title='Product Type' className='dropdown-button'>
+          <MenuItem className={selectedRods} onSelect={() => this.handleFlyRods(5)}>Fly Rods</MenuItem>
+          <MenuItem className={selectedReels} onSelect={this.handleFlyReels.bind(this)}>Fly Reels</MenuItem>
+          <MenuItem className='button'>Line, Leader, & Tippet</MenuItem>
+          <MenuItem className='button'>Accessories & Tools</MenuItem>
+          <MenuItem className='button'>Apparal</MenuItem>
+        </DropdownButton>
+        <DropdownButton title='Brand' className='dropdown-button'>
+          <MenuItem className='button'>Sage</MenuItem>
+          <MenuItem className='button'>Scott</MenuItem>
+          <MenuItem className='button'>Orvis</MenuItem>
+          <MenuItem className='button'>Scott</MenuItem>
+        </DropdownButton>
+        <DropdownButton title='Price' className='dropdown-button'>
+          <MenuItem className='button'>$50</MenuItem>
+          <MenuItem className='button'>$100</MenuItem>
+          <MenuItem className='button'>$150</MenuItem>
+          <MenuItem className='button'>$200</MenuItem>
+          <MenuItem className='button'>$250</MenuItem>
+        </DropdownButton>
+        <DropdownButton title='Sort' className='dropdown-button'>
+          <MenuItem className='button'>Price: Highest-Lowest</MenuItem>
+          <MenuItem className='button'>Price: Lowest-Highest</MenuItem>
+          <MenuItem className='button'>Brand: A-Z</MenuItem>
+          <MenuItem className='button'>Brand: Z-A</MenuItem>
+        </DropdownButton>
       </div>
-    );
+    </div>);
   }
 }
+
+// <button className='button' onClick={this.expandFilters.bind(this)}>
+//   {filters[0]}
+// </button>
+// <button className='button' onClick={this.expandFilters.bind(this)}>
+//   {filters[1]}
+// </button>
+// <button className='button' onClick={this.expandFilters.bind(this)}>
+//   {filters[2]}
+// </button>
 
 export default Filters;

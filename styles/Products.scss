@@ -10,8 +10,10 @@ ul {
   display: flex;
   align-self: center;
   flex-wrap: wrap;
-  margin: auto;
-  max-width: 85%;
+  margin-right: 10%;
+  margin-left: 30%;
+  margin-top: 200px;
+  max-width: 100%;
 }
 
 .product-item {
@@ -42,7 +44,7 @@ ul {
   // line-height: 30px;
   min-width: 300px;
   max-width: 300px;
-  min-height: 80px;
+  min-height: 70px;
   margin: auto;
   overflow: hidden;
   text-align: center;

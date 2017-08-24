@@ -1,13 +1,49 @@
-.button {
+.dropdown-button {
+  font-family: 'Open Sans';
   width: 300px;
-  font-size: 32px;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  // font-size: 32px;
+  box-sizing: border-box;
+  outline-width: 0;
   // margin: auto;
-  background-color: white; /* Green */
+  background-color: #F0F0F0;
+  // border-right: 1px solid #ccc;
+  // border-left: : 1px solid #ccc;
   // display: inline-block;
-  border: 1px, #4c4a37 ;
+  border: none ;
   color: #4c4a37;
-  padding: 15px 15px;
+  padding: 6px 15px;
+  // text-align: center;
+  text-decoration: none;
+  font-size: 24px;
+  // float: left;
+  -webkit-transition:
+    width 1s,
+    height 1s,
+    background-color 1s,
+    -webkit-transform 1s;
+  transition:
+    width 1s,
+    height 1s,
+    background-color 1s,
+    color .5s,
+    transform 1s,
+    border 1s;
+}
+
+.button {
+  font-family: 'Open Sans';
+  width: 300px;
+  // font-size: 32px;
+  box-sizing: border-box;
+  outline-width: 0;
+  // margin: auto;
+  background-color: white;
+  // border-right: 1px solid #ccc;
+  // border-left: : 1px solid #ccc;
+  // display: inline-block;
+  border: none ;
+  color: #4c4a37;
+  padding: 4px 15px;
   // text-align: center;
   text-decoration: none;
   font-size: 16px;
@@ -26,18 +62,34 @@
     border 1s;
 }
 
-.button-hover {
+.button-selected {
+  font-family: 'Open Sans';
   width: 300px;
-  font-size: 20px;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  // font-size: 32px;
+  box-sizing: border-box;
+  outline-width: 0;
   // margin: auto;
-  background-color: white; /* Green */
+  background-color: #F0FFF0;;
+  // border-right: 1px solid #ccc;
+  // border-left: : 1px solid #ccc;
   // display: inline-block;
-  border: none;
+  border: none ;
   color: #4c4a37;
-  padding: 15px 15px;
+  padding: 4px 15px;
   // text-align: center;
   text-decoration: none;
   font-size: 16px;
   // float: left;
+  -webkit-transition:
+    width 1s,
+    height 1s,
+    background-color 1s,
+    -webkit-transform 1s;
+  transition:
+    width 1s,
+    height 1s,
+    background-color 1s,
+    color .5s,
+    transform 1s,
+    border 1s;
 }
