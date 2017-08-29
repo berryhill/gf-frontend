@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import Products from './Products.jsx';
+import Products from './components/products.jsx';
 import Filters from './Filters.jsx';
 import {createStore} from 'redux';
 import {Provider, connect} from 'react-redux';
+import store from "./store";
 
 function filtersExpandCollapse(state={
   filters: 'filters-closed',
-  productTypeButtonState: [false, false, false, false, false] },
-  action) {
+  productTypeButtonState: [false, false, false, false, false] }, action) {
 
   switch(action.type) {
     case 'FLYRODS':
@@ -27,13 +27,13 @@ function filtersExpandCollapse(state={
   }
 }
 
-const store = createStore(filtersExpandCollapse);
-
-const mapStateToProps = function (state) {
-  return {state};
-}
-
-const FilterList = connect(mapStateToProps)(Filters);
+// const store = createStore(filtersExpandCollapse);
+//
+// const mapStateToProps = function (state) {
+//   return {state};
+// }
+//
+// const FilterList = connect(mapStateToProps)(Filters);
 
 class App extends Component {
   constructor() {
@@ -48,12 +48,12 @@ class App extends Component {
           <input className='search-input' placeholder="SEARCH" type="text"/>
         </div>
         <div className='filter-col'>
-          <Provider store={store}>
-            <FilterList />
-          </Provider>
+
         </div>
         <div className='product-col'>
+        <Provider store={store}>
           <Products />
+        </Provider>
         </div>
       </div>
     );
