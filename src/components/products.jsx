@@ -2,14 +2,16 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchProducts } from '../actions/productsActions'
 
+
 @connect((store) => {
   return {
+    searchFieldText: store.search.searchFieldText,
     products: store.products.products,
     productsFetched: store.products.fetched,
-    search: store.search.searchFieldText
   };
 })
 export default class Products extends React.Component {
+
   componentWillMount() {
     this.props.dispatch(fetchProducts(this.props))
   }
@@ -25,7 +27,7 @@ export default class Products extends React.Component {
               <ul className='product-text'>
                 <img
                   className='product-image'
-                  src={'https://'+product.image} />
+                  src={'https://'+ product.image} />
               </ul>
               <div className='product-text'>
                 <ul>

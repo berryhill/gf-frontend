@@ -1,3 +1,5 @@
+
+
 export default function reducer(state={
   searchFieldSelected: false,
   searchFieldText: ""
@@ -8,9 +10,8 @@ action) {
     case "SEARCH_FIELD_SELECTED": {
       return {...state, searchFieldSelected: true}
     }
-    case "UPDATE_SEARCH_FIELD": {
+    case "SEARCH_FIELD_SUBMITTED": {
       return {...state, searchFieldSelected: false, searchFieldText: action.payload}
-      break;
     }
   }
   return state

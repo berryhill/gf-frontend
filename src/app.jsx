@@ -1,41 +1,14 @@
 import React, {Component} from 'react';
+import {Provider, connect} from 'react-redux';
+import {createStore} from 'redux';
+
 import Products from './components/products.jsx';
 import Filters from './Filters.jsx';
-import {createStore} from 'redux';
-import {Provider, connect} from 'react-redux';
 import store from "./store";
+import Header from "./components/header.jsx"
 
-function filtersExpandCollapse(state={
-  filters: 'filters-closed',
-  productTypeButtonState: [false, false, false, false, false] }, action) {
 
-  switch(action.type) {
-    case 'FLYRODS':
-      return Object.assign(
-        {}, state, {
-          productTypeButtonState: [!state.productTypeButtonState[0], false, false, false, false]
-        });
-    case 'FLYREELS':
-      return Object.assign(
-        {}, state, {
-          productTypeButtonState: [false, !state.productTypeButtonState[1], false, false, false]
-        });
-    case 'COLLAPSE':
-      return Object.assign({}, state, { filters: 'filters-closed' });
-    default:
-      return state
-  }
-}
-
-// const store = createStore(filtersExpandCollapse);
-//
-// const mapStateToProps = function (state) {
-//   return {state};
-// }
-//
-// const FilterList = connect(mapStateToProps)(Filters);
-
-class App extends Component {
+export default class App extends Component {
   constructor() {
     super()
   }
@@ -43,10 +16,10 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
-        <div className='header'>
-          <div className='title'>FlyGearFinder</div>
-          <input className='search-input' placeholder="SEARCH" type="text"/>
-        </div>
+        <Provider store={store}>
+          <Header />
+        </Provider>
+
         <div className='filter-col'>
 
         </div>
@@ -59,4 +32,3 @@ class App extends Component {
     );
   }
 }
-export default App;
