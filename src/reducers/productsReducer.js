@@ -4,9 +4,15 @@ import thunk from "redux-thunk"
 export default function reducer(state={
   fetching: false,
   fetched: false,
+  metadata: {
+    page: 1,
+    per_page:10
+  },
   products: [],
   error: null,
-}, action) {
+},
+action) {
+
   switch (action.type) {
     case "FETCH_PRODUCTS_START": {
       return {...state, fetching: true}
@@ -22,17 +28,3 @@ export default function reducer(state={
   }
   return state
 }
-
-// const middleware = applyMiddleware(thunk, logger())
-// const store = createStore(reducer, middleware)
-
-// store.dispatch(dispatch) => {
-//   dispatch({type: "FETCH_PRODUCTS_START"})
-//   axios.get("http://localhost:8080/products/fly_rods")
-//     .then((response) +. {
-//       dispatch({type: "RECEIVE_PRODUCTS", payload: response.data})
-//     })
-//     .catch((err) => {
-//       dispatch({type: "FETCH_PRODUCTS_ERROR", payload: err})
-//     })
-// }

@@ -5,13 +5,13 @@ import { fetchProducts } from '../actions/productsActions'
 @connect((store) => {
   return {
     products: store.products.products,
-    productsFetched: store.products.fetched
+    productsFetched: store.products.fetched,
+    search: store.search.searchFieldText
   };
 })
-export default class Layout extends React.Component {
-
+export default class Products extends React.Component {
   componentWillMount() {
-    this.props.dispatch(fetchProducts())
+    this.props.dispatch(fetchProducts(this.props))
   }
 
   render() {
