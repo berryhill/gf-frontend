@@ -1,11 +1,11 @@
-import thunk from "redux-thunk"
-var axios = require('axios');
+import thunk from 'redux-thunk'
+import axios from 'axios'
 
-import { isEmpty, encodeQueryData } from "./helpers"
+import { isEmpty, encodeQueryData } from './helpers'
 
 
 export function fetchProducts(props) {
-  let url = 'http://localhost:8080'
+  let url = 'http://localhost:8080/products/fly_rods'
   let queryParams = {}
 
   if (props.searchFieldText !== undefined) {
@@ -15,6 +15,8 @@ export function fetchProducts(props) {
   if (!isEmpty(queryParams)) {
       url = url + '?'+ encodeQueryData(queryParams)
   }
+
+  console.log(url)
 
   return function(dispatch) {
     dispatch({type: "FETCH_PRODUCTS_START"})

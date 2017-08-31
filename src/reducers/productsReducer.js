@@ -5,6 +5,7 @@ export default function reducer(state={
   fetching: false,
   fetched: false,
   metadata: {
+    count: 0,
     page: 1,
     per_page:10
   },
@@ -23,7 +24,13 @@ action) {
       break;
     }
     case "RECEIVE_PRODUCTS": {
-      return {...state, fetching: false, fetched: true, products: action.payload}
+      return {
+        ...state,
+        fetching: false,
+        fetched: true,
+        metadata: action.payload.metadata,
+        products: action.payload.results
+      }
     }
   }
   return state
