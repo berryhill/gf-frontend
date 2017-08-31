@@ -13,12 +13,7 @@ export function searchFieldSelected(props) {
 export function searchFieldSubmitted(props) {
 
   return dispatch => {
-<<<<<<< HEAD
     console.log("Search Term: " + props)
-=======
-    console.log("CALLED")
-    console.log(props)
->>>>>>> Implement the search input component
     dispatch({type: "SEARCH_FIELD_SUBMITTED", payload: props})
   }
 }
