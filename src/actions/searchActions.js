@@ -2,6 +2,8 @@ import thunk from "redux-thunk"
 
 import { isEmpty, encodeQueryData } from "./helpers"
 
+import { fetchProducts } from './productsActions'
+
 
 export function searchFieldSelected(props) {
 
@@ -13,7 +15,6 @@ export function searchFieldSelected(props) {
 export function searchFieldSubmitted(props) {
 
   return dispatch => {
-    console.log("Search Term: " + props)
     dispatch({type: "SEARCH_FIELD_SUBMITTED", payload: props})
   }
 }

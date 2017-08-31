@@ -11,7 +11,11 @@ action) {
       return {...state, searchFieldSelected: true}
     }
     case "SEARCH_FIELD_SUBMITTED": {
-      return {...state, searchFieldSelected: false, searchFieldText: action.payload}
+      return {
+        ...state,
+        searchFieldSelected: false,
+        searchFieldText: action.payload
+      }
     }
   }
   return state

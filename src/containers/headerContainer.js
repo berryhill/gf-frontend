@@ -6,7 +6,6 @@ import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap'
 import SearchForm from './searchForm.jsx'
 import {
   searchFieldSelected, searchFieldSubmitted } from '../actions/searchActions'
-import { fetchProducts } from '../actions/productsActions'
 
 
 @connect((store) => {
@@ -15,14 +14,12 @@ import { fetchProducts } from '../actions/productsActions'
   };
 })
 export default class Header extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {value: ''};
+  componentDidMount() {
+    let dispatch = this.props.dispatch
   }
 
   render() {
-    const { searchFieldText } = this.props;
+    const { dispatch, searchFieldText } = this.props;
 
     var searchPlaceholder
     if (searchFieldText === '' || searchFieldText === undefined) {
@@ -34,27 +31,17 @@ export default class Header extends React.Component {
     return (
       <div className='header'>
         <div className='title'>FlyGearFinder</div>
-        <form onSubmit={(event) => this.handleSearchSubmit(event)}>
-          <input
-            name='search'
-            className='search-input'
-            type='text'
-            placeholder={searchPlaceholder}
-            ref='searchInput'
-            onChange={(event) => this.handleChanges(event)}
-          />
-        </form>
+        <Header
+          dispatch={dispatch}
+          placeholder={searchPlaceholder}
+          handleSearchSubmit={this.handleSearchSubmit}
+        />
       </div>
     )
   }
 
-  handleChanges(event){
-    this.setState({value: event.target.value})
-  }
-
-  handleSearchSubmit(event) {
-    event.preventDefault()
-    this.props.dispatch(searchFieldSubmitted(this.state.value))
-    this.props.dispatch(fetchProducts())
+  handleSearchSubmit = (event) => {
+    console.log('Ref: ' + this.refs.searchInput)
+    this.props.dispatch(searchFieldSubmitted(this.refs.searchInput))
   }
 }
