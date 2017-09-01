@@ -8,7 +8,7 @@ const Pagination = ({dispatch, metadata, handleNextPage, handlePrevPage}) => {
   return (
     <div className='pagination'>
       <li className='pagination-text'>
-        <a href="#"
+        <a href='#'
           onClick={(event) => handlePrevPage(dispatch, metadata, event)}>
           {prev}
         </a>
