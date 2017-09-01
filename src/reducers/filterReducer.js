@@ -8,12 +8,14 @@ function filtersExpandCollapse(state={
     case 'FLYRODS':
       return Object.assign(
         {}, state, {
-          productTypeButtonState: [!state.productTypeButtonState[0], false, false, false, false]
+          productTypeButtonState:
+          [!state.productTypeButtonState[0], false, false, false, false]
         });
     case 'FLYREELS':
       return Object.assign(
         {}, state, {
-          productTypeButtonState: [false, !state.productTypeButtonState[1], false, false, false]
+          productTypeButtonState:
+          [false, !state.productTypeButtonState[1], false, false, false]
         });
     case 'COLLAPSE':
       return Object.assign({}, state, { filters: 'filters-closed' });
