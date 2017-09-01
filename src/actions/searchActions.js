@@ -1,7 +1,6 @@
 import thunk from "redux-thunk"
 
 import { isEmpty, encodeQueryData } from "./helpers"
-
 import { fetchProducts } from './productsActions'
 
 
