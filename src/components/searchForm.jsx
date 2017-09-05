@@ -23,6 +23,24 @@ import { searchFieldSelected, searchFieldSubmitted } from '../actions/searchActi
 
 
 export default class SearchForm extends React.Component {
+
+  render() {
+    return (
+      <form className='search-input'>
+        <FormGroup controlId="searchForm">
+          <ControlLabel>search</ControlLabel>
+          <FormControl
+            type='text'
+            placeholder={this.props.searchPlaceholder}
+            onChange={this.handleChange}
+            onSubmit={searchFieldSubmitted}
+          />
+          <FormControl.Feedback />
+        </FormGroup>
+      </form>
+    );
+  }
+
   getValidationState() {
     const length = this.state.value.length;
     if (length > 10) return 'success';
@@ -37,24 +55,5 @@ export default class SearchForm extends React.Component {
   handleSubmit(event) {
     searchFieldSubmitted(values)
     console.log("Search Submitted")
-  }
-
-  render() {
-    return (
-      <form className='search-input'>
-        <FormGroup
-          controlId="searchForm"
-        >
-          <ControlLabel>search</ControlLabel>
-          <FormControl
-            type='text'
-            placeholder={this.props.searchPlaceholder}
-            onChange={this.handleChange}
-            onSubmit={searchFieldSubmitted}
-          />
-          <FormControl.Feedback />
-        </FormGroup>
-      </form>
-    );
   }
 }

@@ -35,14 +35,17 @@ export default class HeaderContainer extends React.Component {
       <div className='header'>
         <div className='title'>FlyGearFinder</div>
         <form onSubmit={(event) => this.handleSearchSubmit(event)}>
-          <input
-            name='search'
-            className='search-input'
-            type='text'
-            placeholder={searchPlaceholder}
-            ref='searchInput'
-            onChange={(event) => this.handleChanges(event)}
-          />
+          <FormGroup controlId="searchForm">
+            <FormControl
+              name='search'
+              className='search-input'
+              type='text'
+              placeholder={searchPlaceholder}
+              ref='searchInput'
+              onChange={(event) => this.handleChanges(event)}
+            />
+            <FormControl.Feedback />
+          </FormGroup>
         </form>
         <div className='social-profiles'>
           <a className='social-profile-icon' href='https://www.facebook.com'>
