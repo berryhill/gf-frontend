@@ -40,7 +40,7 @@ export default class Header extends React.Component {
     )
   }
 
-  handleSearchSubmit = (event) => {
+  handleSearchSubmit(event) {
     console.log('Ref: ' + this.refs.searchInput)
     this.props.dispatch(searchFieldSubmitted(this.refs.searchInput))
   }

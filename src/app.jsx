@@ -22,12 +22,15 @@ export default class App extends Component {
         </Provider>
 
         <div className='filter-col'>
+          <Provider store={store}>
+            <Filters />
+          </Provider>
         </div>
 
         <div className='product-col'>
-        <Provider store={store}>
-          <Products />
-        </Provider>
+          <Provider store={store}>
+            <Products />
+            </Provider>
         </div>
         <div className='footer'>
           <Footer />

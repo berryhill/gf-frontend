@@ -14,33 +14,6 @@ let filters = ["Product Type", "Brand", "Price", "Sort"]
 // }
 
 class Filters extends Component {
-  expandFilters() {
-    if (this.props.state.filters === 'filters-closed') {
-      this.props.dispatch({type: 'EXPAND'});
-    } else {
-      this.props.dispatch({type: 'COLLAPSE'});
-    }
-  }
-
-  updateFilterButtonGridState() {
-    this.props.dispatch({type: 'BUTTONPUSH'})
-  }
-
-  handleProductButton(key) {
-    action = PRODUCTBUTTION + key
-    this.props.dispatch({type: action})
-  }
-
-  handleFlyRods(num) {
-    this.props.dispatch({type: 'FLYRODS'})
-    console.log('Selected')
-    console.log(num)
-  }
-
-  handleFlyReels() {
-    this.props.dispatch({type: 'FLYREELS'})
-    console.log('Selected')
-  }
 
   render() {
     // return (<div>
@@ -71,23 +44,26 @@ class Filters extends Component {
     // <MenuItem className={this.props.state.filters} onSelect={this.handleSelect.bind(this)}>Fly Rods</MenuItem>
 
     var selectedRods; var selectedReels
-    if (this.props.state.productTypeButtonState[0]) {
-      selectedRods = 'button-selected'
-    } else {
-      selectedRods = 'button'
-    }
+    // if (this.props.state.productTypeButtonState[0]) {
+    //   selectedRods = 'button-selected'
+    // } else {
+    //   selectedRods = 'button'
+    // }
+    //
+    // if (this.props.state.productTypeButtonState[1]) {
+    //   selectedReels = 'button-selected'
+    // } else {
+    //   selectedReels = 'button'
+    // }
 
-    if (this.props.state.productTypeButtonState[1]) {
-      selectedReels = 'button-selected'
-    } else {
-      selectedReels = 'button'
-    }
+    // <MenuItem className={selectedRods} onSelect={() => this.handleFlyRods(5)}>Fly Rods</MenuItem>
+    // <MenuItem className={selectedReels} onSelect={this.handleFlyReels.bind(this)}>Fly Reels</MenuItem>
 
     return (<div className='filters'>
       <div className='filters-list'>
         <DropdownButton title='Product Type' className='dropdown-button'>
-          <MenuItem className={selectedRods} onSelect={() => this.handleFlyRods(5)}>Fly Rods</MenuItem>
-          <MenuItem className={selectedReels} onSelect={this.handleFlyReels.bind(this)}>Fly Reels</MenuItem>
+          <MenuItem className='button'>Fly Rods</MenuItem>
+          <MenuItem className='button'>Fly Reels</MenuItem>
           <MenuItem className='button'>Line, Leader, & Tippet</MenuItem>
           <MenuItem className='button'>Accessories & Tools</MenuItem>
           <MenuItem className='button'>Apparal</MenuItem>
@@ -113,6 +89,34 @@ class Filters extends Component {
         </DropdownButton>
       </div>
     </div>);
+  }
+  
+  expandFilters() {
+    if (this.props.state.filters === 'filters-closed') {
+      this.props.dispatch({type: 'EXPAND'});
+    } else {
+      this.props.dispatch({type: 'COLLAPSE'});
+    }
+  }
+
+  updateFilterButtonGridState() {
+    this.props.dispatch({type: 'BUTTONPUSH'})
+  }
+
+  handleProductButton(key) {
+    action = PRODUCTBUTTION + key
+    this.props.dispatch({type: action})
+  }
+
+  handleFlyRods(num) {
+    this.props.dispatch({type: 'FLYRODS'})
+    console.log('Selected')
+    console.log(num)
+  }
+
+  handleFlyReels() {
+    this.props.dispatch({type: 'FLYREELS'})
+    console.log('Selected')
   }
 }
 

@@ -32,28 +32,29 @@ export default class Products extends React.Component {
     } else {
       return (
         <div>
-        <ul className='product-list'>
-          {products.map(function (product, index) {
-            return (
-              <li key={index} className='product-item'>
-                <img
-                  className='product-image'
-                  src={'https://'+ product.image}
-                />
-                <div className='product-text'>
-                  <ul>{product.brand}</ul>
-                  <ul>{product.name}</ul>
-                  <ul>{product.price}</ul>
-                </div>
-              </li>
-            )
-          })}
-        </ul>
-        <Pagination
-          dispatch={dispatch}
-          metadata={metadata}
-          handleNextPage={this.handleNextPage}
-          handlePrevPage={this.handlePrevPage}/>
+          <ul className='product-list'>
+            {products.map(function (product, index) {
+              return (
+                <li key={index} className='product-item'>
+                  <img
+                    className='product-image'
+                    src={'https://'+ product.image}
+                  />
+                  <div className='product-text'>
+                    <ul>{product.brand}</ul>
+                    <ul>{product.name}</ul>
+                    <ul>{product.price}</ul>
+                  </div>
+                </li>
+              )
+            })}
+          </ul>
+          <Pagination
+            dispatch={dispatch}
+            metadata={metadata}
+            handleNextPage={this.handleNextPage}
+            handlePrevPage={this.handlePrevPage}
+          />
         </div>
       )
     }

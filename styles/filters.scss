@@ -5,11 +5,11 @@
 }
 
 .filters-list {
-  position: relative;
-  float: left;
   display: flex;
-  align-self: center;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
+  position: relative;
   // margin-right: 10%;
   // margin-left: 30%;
   // max-width: 300px;
