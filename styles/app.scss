@@ -3,50 +3,6 @@
   margin: 0 auto;
 }
 
-.header {
-  height: 60px;
-  // display: flex;
-  // align-self: center;
-  // flex-wrap: wrap;
-  // margin-right: 10%;
-  // margin-left: 10%;
-  // background-color: #DCDCDC;
-  // background-color: #404040;
-  background-color: #282828;
-  position: fixed;
-  z-index:1;
-  min-wdith: 100%;
-  width: 100%;
-}
-
-.search-input {
-  z-index: 2;
-  margin-top: 10px;
-  margin-left: 320px;
-  height: 40px;
-  width: 82%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 28px;
-  outline-width: 0;
-  text-indent: 10px;
-  font-family: 'Pacifico';
-}
-
-.title {
-  position: fixed;
-  // background-color: #404040;
-  background-color: #282828;
-  // color: #4c4a37;
-  // color: white;
-  color: #E0E0E0;
-  font-family: 'Open Sans';
-  font-size: 32px;
-  margin-top: 8px;
-  margin-left: 62px;
-}
-
 .filter-col {
   // width: 300px;
   // background-color: #404040;

@@ -4,7 +4,7 @@ import { createStore } from 'redux'
 import { Router, Route } from 'react-router'
 
 import Products from './components/products.jsx'
-import Filters from './Filters.jsx'
+import Filters from './components/filters.jsx'
 import store from "./store"
 import Header from './components/header.jsx'
 import Footer from './components/footer.jsx'
