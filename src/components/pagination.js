@@ -10,7 +10,7 @@ const Pagination = ({dispatch, metadata, handleNextPage, handlePrevPage}) => {
       <li className='pagination-text'>
         <a href='#'
           onClick={(event) => handlePrevPage(dispatch, metadata, event)}>
-          {prev}
+          {prev}  
         </a>
       </li>
       <li className='pagination-text'>

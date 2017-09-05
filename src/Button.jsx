@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+simport React, {Component} from 'react';
 import Filters from './Filters.jsx'
 
 class Button extends Component {

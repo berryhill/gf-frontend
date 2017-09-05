@@ -1,0 +1,22 @@
+.footer {
+  height: 200px;
+  background-color: #282828;
+  z-index:1;
+  min-width: 100%;
+  width: 100%;
+  position: relative;
+  clear:both
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-text {
+  padding-right: 10%;
+  padding-left: 10%;
+  padding-top: 10px;
+  color: white;
+}

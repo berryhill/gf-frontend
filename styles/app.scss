@@ -12,7 +12,7 @@
   // margin-left: 10%;
   // background-color: #DCDCDC;
   // background-color: #404040;
-  background-color: #484848	;
+  background-color: #282828;
   position: fixed;
   z-index:1;
   min-wdith: 100%;
@@ -37,7 +37,7 @@
 .title {
   position: fixed;
   // background-color: #404040;
-  background-color: #484848	;
+  background-color: #282828;
   // color: #4c4a37;
   // color: white;
   color: #E0E0E0;
@@ -48,21 +48,22 @@
 }
 
 .filter-col {
-    // width: 300px;
-    // background-color: #404040;
-    margin-top: 60px;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    min-width: 100%;
-    background-color: #F0F0F0;
-    // border-radius: 4px;
-    // margin-left: 50px;
-    // float:left; /* add this */
-    // border: none;
-    // min-height: 800px;
-    // left: 20%;
-    // margin-left: 35%;
-    position: fixed;
+  // width: 300px;
+  // background-color: #404040;
+  margin-top: 60px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  min-width: 100%;
+  background-color: #F0F0F0;
+  // border-radius: 4px;
+  // margin-left: 50px;
+  // float:left; /* add this */
+  // border: none;
+  // min-height: 800px;
+  // left: 20%;
+  // margin-left: 35%;
+  position: fixed;
+  padding: none;
 }
 
 .product-col {
@@ -71,4 +72,6 @@
   // margin-top: 100px;
   background-color: white;
   float: left;
+  padding-left: 20px;
+  padding-right: 20px;
 }

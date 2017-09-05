@@ -36,11 +36,10 @@ export default class Products extends React.Component {
           {products.map(function (product, index) {
             return (
               <li key={index} className='product-item'>
-                <ul className='product-text'>
-                  <img
-                    className='product-image'
-                    src={'https://'+ product.image} />
-                </ul>
+                <img
+                  className='product-image'
+                  src={'https://'+ product.image}
+                />
                 <div className='product-text'>
                   <ul>{product.brand}</ul>
                   <ul>{product.name}</ul>
