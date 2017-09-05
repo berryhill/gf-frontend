@@ -68,7 +68,7 @@ class Filters extends Component {
           <MenuItem className='button'>Accessories & Tools</MenuItem>
           <MenuItem className='button'>Apparal</MenuItem>
         </DropdownButton>
-        <DropdownButton title='Brand' className='dropdown-button'>
+        <DropdownButton title='Brands' className='dropdown-button'>
           <MenuItem className='button'>Sage</MenuItem>
           <MenuItem className='button'>Scott</MenuItem>
           <MenuItem className='button'>Orvis</MenuItem>
@@ -90,7 +90,7 @@ class Filters extends Component {
       </div>
     </div>);
   }
-  
+
   expandFilters() {
     if (this.props.state.filters === 'filters-closed') {
       this.props.dispatch({type: 'EXPAND'});

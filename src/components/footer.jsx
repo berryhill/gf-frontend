@@ -16,8 +16,8 @@ const Footer = () => {
         <div>Social Media</div>
         <div><a href='http://www.facebook.com'>facebook</a></div>
         <div><a href='http://www.twitter.com'>twitter</a></div>
+        <div><a href='http://www.google.com'>google+</a></div>
         <div><a href='http://www.google.com'>email us</a></div>
-        <div>-</div>
       </div>
     </div>
   )
