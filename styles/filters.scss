@@ -1,6 +1,5 @@
 .filters {
   position: relative;
-
   min-width: 80%
 }
 
@@ -10,84 +9,10 @@
   justify-content: center;
   flex-wrap: wrap;
   position: relative;
-  // margin-right: 10%;
-  // margin-left: 30%;
-  // max-width: 300px;
-  // justify-content: center;
-  // align-items: center;
 }
 
 .filter-text {
   color: #4c4a37;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 48px;
-  // line-height: 30px;
-  // min-height: 80px;
-  // margin: auto;
-  // text-align: center;
-}
-
-@-webkit-keyframes rotating {
-    from{
-        -webkit-transform: rotate(0deg);
-    }
-    to{
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-// -webkit-transform .5s;
-// -webkit-animation: rotating 1s linear .5;
-
-.filters-open {
-  opacity: 100%;
-  z-index: -1;
-  position: absolute;
-  background-color: white;
-  width: 300px;
-  // height: 400px;
-  float: left;
-  -webkit-transition:
-    // width .5s,
-    // height .5s,
-    opacity .5s,
-    // background-color 1s,
-  // transition:
-  //   width 1s,
-  //   height 1s,
-    // background-color 1s,
-    // color .5s,
-    // transform 1s,
-    // border 1s;
-  // -webkit-animation-duration: 3s;
-  // -webkit-animation-delay: 2s;
-  // -webkit-animation-iteration-count: 5;
-}
-
-.filters-closed {
-  opacity: 0;
-  z-index: 0;
-  width: 0px;
-  height: 0px;
-  // float: left;
-  text-color: white;
-  -webkit-transition:
-    // width .5s,
-    // height .5s,
-    opacity .5s,
-    // -webkit-transform 1s;
-  // transition:
-  //   width 1s,
-  //   height 1s,
-}
-
-.filter-checklist-open {
-  // position: absolute;
-}
-
-.filter-checklist-closed {
-  display: none;
-}
-
-.finished {
 }
