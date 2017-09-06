@@ -1,0 +1,46 @@
+sudo: required
+
+language: node_js
+
+cache:
+  directories:
+    -s "$HOME/coding/google-cloud-sdk"
+
+services:
+  - docker
+
+# addons:
+#   apt:
+#     packages:
+#       - default-jre
+
+env:
+  global:
+    - GOOGLE_APPLICATION_CREDENTIALS-~/.gcloud-service-key.json
+    - PROJECT_NAME=fifth-marker-132121
+    - CLUSTER_NAME=cluster-1
+    - CLOUDSDK_COMPUTE_ZONE=us-central1-f
+    - NODE_ENV=CI
+
+before_install:
+  - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi
+  - source /home/travis/google-cloud-sdk/path.bash.inc
+  - gcloud --quiet version
+  - gcloud --quiet components update
+  - gcloud --quiet components update beta
+
+install:
+  - npm install
+
+script:
+  - echo "skip tests"
+
+before_deploy:
+  - gcloud --quiet components update kubectl
+
+deploy:
+  - provider: script
+    script: ./resources/deploy.sh
+    skip_cleanup: true
+    on:
+      branch: master
