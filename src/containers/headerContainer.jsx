@@ -11,7 +11,8 @@ import { fetchProducts } from '../actions/productsActions'
 
 @connect((store) => {
   return {
-    searchFieldText: store.search.searchFieldText
+    searchFieldText: store.search.searchFieldText,
+    metadata: store.products.metadata
   };
 })
 export default class HeaderContainer extends React.Component {
@@ -31,14 +32,16 @@ export default class HeaderContainer extends React.Component {
           dispatch={dispatch}
           searchFieldText={searchFieldText}
           handleSearchSubmit={this.handleSearchSubmit}
+          metadata={this.props.metadata}
         />
         <SocialMedia />
       </div>
     )
   }
 
-  handleSearchSubmit(event, dispatch, value) {
+  handleSearchSubmit(event, dispatch, value, metadata) {
     event.preventDefault()
+    metadata.page = 1
     dispatch(searchFieldSubmitted(value))
     dispatch(fetchProducts())
   }

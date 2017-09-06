@@ -10,7 +10,7 @@ export default class Search extends React.Component {
   }
 
   render() {
-    const { dispatch, searchFieldText } = this.props;
+    const { dispatch, searchFieldText, metadata } = this.props;
 
     var searchPlaceholder
     if (searchFieldText === '' || searchFieldText === undefined) {
@@ -21,7 +21,8 @@ export default class Search extends React.Component {
 
     return (
       <form onSubmit={(event) =>
-        this.props.handleSearchSubmit(event, dispatch, this.state.value)}
+        this.props.handleSearchSubmit(
+          event, dispatch, this.state.value, metadata)}
       >
         <FormGroup controlId="searchForm">
           <FormControl
