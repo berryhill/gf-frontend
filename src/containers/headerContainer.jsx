@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux'
-import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap'
 
-import SearchForm from '../components/searchForm.jsx'
+import Search from '../components/search.jsx'
+import SocialMedia from '../components/socialMedia.jsx'
 import {
   searchFieldSelected, searchFieldSubmitted } from '../actions/searchActions'
 import { fetchProducts } from '../actions/productsActions'
@@ -22,68 +22,24 @@ export default class HeaderContainer extends React.Component {
   }
 
   render() {
-    const { searchFieldText } = this.props;
-
-    var searchPlaceholder
-    if (searchFieldText === '' || searchFieldText === undefined) {
-      searchPlaceholder = 'search'
-    } else {
-      searchPlaceholder = searchFieldText
-    }
+    const { dispatch, searchFieldText } = this.props;
 
     return (
       <div className='header'>
         <div className='title'>FlyGearFinder</div>
-        <form onSubmit={(event) => this.handleSearchSubmit(event)}>
-          <FormGroup controlId="searchForm">
-            <FormControl
-              name='search'
-              className='search-input'
-              type='text'
-              placeholder={searchPlaceholder}
-              ref='searchInput'
-              onChange={(event) => this.handleChanges(event)}
-            />
-            <FormControl.Feedback />
-          </FormGroup>
-        </form>
-        <div className='social-profiles'>
-          <a className='social-profile-icon' href='https://www.facebook.com'>
-            <img border="0"
-              src='https://www.roguejohnsen.com/images/facebook.png'
-              width='44'
-              height='44'
-            />
-          </a>
-          <a className='social-profile-icon' href='https://www.twitter.com'>
-            <img border='0'
-              src='http://www.iconsdb.com/icons/preview/gray/twitter-xxl.png'
-              width='48'
-              height='48'
-            />
-          </a>
-          <a className='social-profile-icon' href='https://www.google.com'>
-            <img border='0'
-              src='https://tinbits.io/images/google-plus-grey.png'
-              width='44'
-              height='44'
-            />
-          </a>
-				  <a href="mailto:" target="_blank">
-            <i class="fa fa-envelope fa-2x"></i>
-          </a>
-			  </div>
+        <Search
+          dispatch={dispatch}
+          searchFieldText={searchFieldText}
+          handleSearchSubmit={this.handleSearchSubmit}
+        />
+        <SocialMedia />
       </div>
     )
   }
 
-  handleChanges(event){
-    this.setState({value: event.target.value})
-  }
-
-  handleSearchSubmit(event) {
+  handleSearchSubmit(event, dispatch, value) {
     event.preventDefault()
-    this.props.dispatch(searchFieldSubmitted(this.state.value))
-    this.props.dispatch(fetchProducts())
+    dispatch(searchFieldSubmitted(value))
+    dispatch(fetchProducts())
   }
 }
