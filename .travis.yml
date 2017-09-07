@@ -9,11 +9,6 @@ cache:
 services:
   - docker
 
-# addons:
-#   apt:
-#     packages:
-#       - default-jre
-
 env:
   global:
     - GOOGLE_APPLICATION_CREDENTIALS-~/.gcloud-service-key.json

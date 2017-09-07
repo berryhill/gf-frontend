@@ -9,11 +9,16 @@ ADD . /usr/src/app
 WORKDIR /usr/src/app
 RUN npm install
 
+RUN mkdir dist
+RUN npm rebuild node-sass
+RUN rm -rf node_modules
+RUN npm install
+
 # Build the app
-RUN npm build
+RUN npm run build
 
 # Expose the app port
 EXPOSE 3000
 
 # Start the app
-CMD npm start
+CMD npm run start

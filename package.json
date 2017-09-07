@@ -4,8 +4,9 @@
   "description": "Simple and lightweight Boilerplate for ReactJS projects",
   "scripts": {
     "lint": "eslint src",
-    "postinstall": "webpack -p",
-    "start": "node server-dev.js"
+    "dev": "node server.js",
+    "build": "webpack --config=webpack.prod.js -p",
+    "start": "node server-prod.js"
   },
   "repository": "https://github.com/noahlotzer/react-simple-boilerplate.git",
   "keywords": [
@@ -45,6 +46,8 @@
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-polyfill": "^6.26.0",
+    "clean-webpack-plugin": "^0.1.16",
+    "express": "^4.15.4",
     "jquery": "^3.2.1",
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.2",
