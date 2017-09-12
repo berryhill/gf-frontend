@@ -32,4 +32,4 @@ kubectl set image deployment/gf-frontend gf-frontend=gcr.io/${PROJECT_NAME}/gf-f
 # POD=$(kubectl get pods | grep gf-frontend | sed 's/ .*//')
 # echo ${POD}
 # kubectl exec -it ${POD} -c gf-frontend bash
-# npm run sbuild
+# npm run build

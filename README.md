@@ -1,41 +1,45 @@
-React Boilerplate
-=====================
+# Gf-Frontend
+Remove sudo if using OSX
 
-A minimal and light dev environment for ReactJS.
-
-### Usage
-
-Clone the boilerplate and create your own git repo.
-
+## Clone
 ```
-git clone git@github.com:nolotz/react-simple-boilerplate.git
+$ git clone git@github.com:berryhill/gf-frontend.git
 ```
 
-Install the dependencies and start the server.
+## Install / Build / Run
+
+Install the dependencies and start the server (Containerized).
 
 ```
-npm/yarn install
-npm/yarn start
-open http://localhost:3000
+$ sudo docker build -t gcr.io/fifth-marker-132121/gf-frontend .
+$ sudo docker run -i -t -p 3000:3000 gcr.io/fifth-marker-132121/gf-frontend
 ```
 
-### Static Files
+## API
+Find API [here](https://github.com/berryhill/gf-api)
 
-You can store static files like images, fonts, etc in the `build` folder.
+# Tasks
 
-For example, if you copy a file called my_image.png into the build folder you can access it using `http://localhost:3000/build/my_image.png`.
+### Completed
++ **Dockerize**
++ **Searching**
++ **Pagination**
++ **Continuous Integration / Continuous Deployment**
++ **Nginx**
++ **Footer**
 
-### Linting
+### WIP
++ Filters
+  + **UI**
+  + Redux
+  + Router
+  + Query params
++ Social Media Icons
 
-This boilerplate project includes React ESLint configuration.
-
-```
-npm run lint
-```
-
-### Dependencies
-
-* React
-* Webpack
-* [babel-loader](https://github.com/babel/babel-loader)
-* [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
+### TODO
++ Tests
++ Email list
++ Item Detail view
++ SEO
++ Home Page Splash
++ Mobile Friendly
