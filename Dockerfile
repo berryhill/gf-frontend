@@ -1,5 +1,5 @@
-FROM node:4.4.6
-MAINTAINER tribou
+FROM node:latest
+MAINTAINER Berryhill
 
 # Prepare app directory
 RUN mkdir -p /usr/src/app
@@ -9,6 +9,7 @@ ADD . /usr/src/app
 WORKDIR /usr/src/app
 RUN npm install
 
+RUN rm -rf dist
 RUN mkdir dist
 RUN npm rebuild node-sass
 RUN rm -rf node_modules
