@@ -38,4 +38,4 @@ deploy:
     script: ./resources/deploy.sh
     skip_cleanup: true
     on:
-      branch: master
+      branch: stage

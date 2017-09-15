@@ -6,7 +6,8 @@ import { isEmpty, encodeQueryData } from './helpers'
 
 
 export function fetchProducts() {
-  let url = 'http://localhost:8080/products/fly_rods'
+  // let url = 'process.env.URL'
+  let url = 'http://104.154.247.230:8080/products/fly_rods'
   let queryParams = {}
 
   if (store.getState().search.searchFieldText !== '') {

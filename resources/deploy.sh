@@ -27,9 +27,3 @@ kubectl config current-context
 
 echo "Deploy"
 kubectl set image deployment/gf-frontend gf-frontend=gcr.io/${PROJECT_NAME}/gf-frontend:$TRAVIS_COMMIT
-
-# echo "Post deploy installation" # WORK AROUND.. node-sass env bug
-# POD=$(kubectl get pods | grep gf-frontend | sed 's/ .*//')
-# echo ${POD}
-# kubectl exec -it ${POD} -c gf-frontend bash
-# npm run build
