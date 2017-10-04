@@ -16,8 +16,7 @@ $ sudo docker run -i -t -p 3000:3000 gcr.io/fifth-marker-132121/gf-frontend
 ```
 
 ## Stage
-You can also visit `http://35.186.230.161/` with the API running locally
-
+You can also visit (http://35.186.230.161/)
 ## API
 Find API [here](https://github.com/berryhill/gf-api)
 
